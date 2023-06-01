@@ -161,13 +161,13 @@ https://www.youtube.com/watch?v=VjtMt689ql8
 #### Patterns to describe the contact between bounded contexts and teams
 - open / host service (shared API)
 - conformist
-- anti corruption layer
-- shared kernel
-- customer / supplier
-- partnership
-- published language
-- separate ways
-- big ball of mud
+- anti corruption layer (transforms data for use in the application)
+- shared kernel (shared artifact between two teams, e.g. database)
+- customer / supplier (downstream is the customer of the supplier(upstream))
+- partnership (cooperative relationship between two teams)
+- published language (e.g. calendar invites follow a published language .ics)
+- separate ways (bounded contexts have no connections)
+- big ball of mud (part of a system that is a mess)
 
 ![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/227196f2-7eb1-4701-8dce-9ee8b98945da)
 
@@ -182,3 +182,46 @@ With context mapping we focus on dependencies between bounded contexts:
 
 ![context-map](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/e5095fb6-abd6-4e94-a2b8-f5b8d3ec4c51)
 
+![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/bee5f016-8908-484f-9cca-0de197b5a225)
+
+### Strategise
+This is the stage where teams can strategise all the subdomains discovered with the above tools.
+
+![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/f015a5bd-9d0c-4312-ac66-0ac5aa98ff0c)
+
+#### What?
+- The sub domains
+
+#### Why?
+- Identify core sub domains
+- Focus on what's important
+- Build vs Buy
+- Help to think short, medium and long-term
+
+![core-domain-chart](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/ae71f07f-c365-475a-9a40-fb3ad4e25628)
+
+- core - usp - unique selling proposition - make application different
+    - cinema management - movies + cinemas
+- supporting
+    - anything that is required to perform business - but not core business
+    - loyalty card - not required for core business but necessary to support business
+- generic
+    - supports business but generic to any business
+    - invoicing
+
+### Organise
+
+![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/0eda8128-3f82-4d85-b6e6-f9a9e7c5f68c)
+
+#### What?
+- Teams
+
+#### Why?
+- Identify teams' dependencies and responsibilities
+- Lower cognitive load
+- Limit context switching
+- Consider org constraints
+
+![team-topologies](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/72fe29be-4675-4f7c-924e-d8dd3828f1c7)
+
+![team-interaction](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/016fff81-840d-48db-b4dc-04a07095fc0e)
