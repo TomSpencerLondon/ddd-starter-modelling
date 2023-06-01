@@ -222,6 +222,19 @@ This is the stage where teams can strategise all the subdomains discovered with 
 - Limit context switching
 - Consider org constraints
 
+
 ![team-topologies](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/72fe29be-4675-4f7c-924e-d8dd3828f1c7)
 
 ![team-interaction](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/016fff81-840d-48db-b4dc-04a07095fc0e)
+
+Each service must be fully owned by a team with sufficient cognitive capacity to build and operate it.
+
+#### Cognitive load
+- intrinsic (how do I write a Java class)
+- extraneous (how do I deploy this app)
+- germane (business problems)
+
+### Define
+
+![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/969b4f9c-caba-4bdf-a1e1-676d07e702f1)
+
