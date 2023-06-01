@@ -151,6 +151,33 @@ The message should contain 3 elements:
 3. The order in which the message occurs in the flow being modelled
 
 #### Context mapping
+This video from Michael Plod is quite useful on context mapping:
+https://www.youtube.com/watch?v=VjtMt689ql8
+
+"A loosely coupled software architecture and org structure to match" is a key predictor of:
+- Continuous Delivery Performance
+- Ability to scale organization and increase performance linearly
+
+#### Patterns to describe the contact between bounded contexts and teams
+- open / host service (shared API)
+- conformist
+- anticorruption layer
+- shared kernel
+- customer / supplier
+- partnership
+- published language
+- separate ways
+- big ball of mud
+
+![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/227196f2-7eb1-4701-8dce-9ee8b98945da)
+
+![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/fed2e557-2e85-4d9a-8a66-b7c780ed2c04)
+
+![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/a9191d8d-3a3c-481b-9b9e-8df85ff91258)
+
+Context Maps aim to deliver a holistic overview regarding coupling of bounded contexts.
+
+With context mapping we focus on dependencies between bounded contexts:
 ![context-map-cheat-sheet](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/321fe720-b55f-40ec-a9e4-80b17bc6bc58)
 
 ![context-map](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/e5095fb6-abd6-4e94-a2b8-f5b8d3ec4c51)
