@@ -161,7 +161,7 @@ https://www.youtube.com/watch?v=VjtMt689ql8
 #### Patterns to describe the contact between bounded contexts and teams
 - open / host service (shared API)
 - conformist
-- anticorruption layer
+- anti corruption layer
 - shared kernel
 - customer / supplier
 - partnership
@@ -181,3 +181,4 @@ With context mapping we focus on dependencies between bounded contexts:
 ![context-map-cheat-sheet](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/321fe720-b55f-40ec-a9e4-80b17bc6bc58)
 
 ![context-map](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/e5095fb6-abd6-4e94-a2b8-f5b8d3ec4c51)
+
