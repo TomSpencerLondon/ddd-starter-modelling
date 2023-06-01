@@ -102,8 +102,50 @@ https://microservices.io/patterns/decomposition/decompose-by-subdomain.html
 
 https://github.com/ddd-crew/domain-message-flow-modelling
 
+### Domain Message Flow Modelling
+
+Designing loosely-coupled systems requires more than carefully designed boundaries. Carefully defined interactions between bounded contexts is equally important.
+
+A [bounded context](https://martinfowler.com/bliki/BoundedContext.html) is a sub-system in a software architecture aligned to a part of the domain. It can be implemented as a microservice or a module within a monolith.
+
+A Domain Message Flow Diagram is a simple visualisation showing the flow of messages (commands, events, queries) between actors, bounded contexts, and systems, for a single scenario.
+
+### Separate Message & Contents
+
+The separate message & contents format uses 2 shapes for each message: 1 for the name and order of the message and a separate box to display the contents of the message (the information it carries).
+
+The benefit of this format is that you can focus on the flow of messages without getting bogged down by the message contents at the start.
+
+Start by showing just the messages flowing between senders and receivers (with the order number on the message).
+
 ![just-messages-no-contents](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/c98019ca-99d3-4389-b9e5-2e45f5d61e81)
+
+Then show the contents of each message in a separate box next to each message:
+
+### Combined Message & Contents
+
+The combined message & contents format uses a single shape to capture the message name, order, and contents.
 
 ![messages-and-contents](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/4f8b949e-d511-4ce4-b75f-39e1e23bf8a1)
 
 ![domain-message-flow](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/ab9bfb19-7fe3-4c54-85da-f4118f88c87c)
+
+#### How to Use
+
+When you have an initial cut of your architecture - you have identified candidate bounded contexts - you can begin design the message flows.
+
+Start by creating a list of scenarios to model. And then for each scenario create a diagram
+
+When creating a diagram, the typical flow is:
+
+1. Start with an actor/context/system
+2. Create the message they want to send
+3. Add the recipient of the message and a line connecting the sender and the receiver
+4. Place the message close to the line
+5. Repeat steps 1 - 4 until your scenario is complete
+
+The message should contain 3 elements:
+
+1. The name of the message
+2. The significant data contained within the message
+3. The order in which the message occurs in the flow being modelled
