@@ -255,4 +255,420 @@ Manage intrinsic load, reduce irrelevant load, increase relevant load = Efficien
 
 ![bounded-context-canvas-v5](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/f88cd15f-182b-4e75-a398-ff8270111d8c)
 
+![BCCanvasExample](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/4b6a8221-d1df-4505-a676-6214b978039b)
+
+
+#### Using the C4 Model
+The C4 diagram has four parts:
+- System Context
+- Container
+- Component
+- Code
+
+For the moment we will focus on the first three parts of the C4 diagram. There are three main elements to the System Context
+diagram:
+- people
+- Your software system (that you are designing)
+- Supporting software systems
+
+We will start by adding Nodes:
+
+```mermaid
+flowchart TD
+    User["Premium Member
+    [Person]
+    A user of the website who has
+    purchased a subscription"]
+```
+
+There are various options for the direction of the flowchart:
+- TB: top-to-bottom
+- TD: top-down
+- BT: bottom-to-top
+- RL: right-to-left
+- LR: left-to-right
+
+```mermaid
+flowchart TD
+    User["Premium Member
+    [Person]
+    
+    A user of the website who has
+    purchased a subscription"]
+    
+    LS["Listings Service
+    [Software System]
+    
+    Serves web pages displaying title
+    listings to the end user"]
+    
+    TS["Title Service
+    [Software System]
+    
+    Provides an API to retrieve
+    title information"]
+    
+    RS["Review Service
+    [Software System]
+    
+    Provides an API to retrieve
+    and submit reviews"]
+    
+    SS["Search Service
+    [Software System]
+    
+    Provides an API to search
+    for titles"]
+    
+    User--"Views titles, searches titles\nand reviews titles using" --> LS
+    
+    LS--"Retrieves title information from"-->TS
+    LS--"Retrieves from and submits reviews to"-->RS
+    LS--"Searches for titles using"-->SS
+```
+
+#### Adding Style
+
+We can now add style to the nodes:
+
+```mermaid
+---
+title: "Listing Service C4 Model: System Context"
+---
+flowchart TD
+    User["🧍 
+    Premium Member
+    [Person]
+    
+    A user of the website who has
+    purchased a subscription"]
+    
+    LS["Listings Service
+    [Software System]
+    
+    Serves web pages displaying title
+    listings to the end user"]
+    
+    TS["Title Service
+    [Software System]
+    
+    Provides an API to retrieve
+    title information"]
+    
+    RS["Review Service
+    [Software System]
+    
+    Provides an API to retrieve
+    and submit reviews"]
+    
+    SS["Search Service
+    [Software System]
+    
+    Provides an API to search
+    for titles"]
+    
+    User--"Views titles, searches titles\nand reviews titles using" --> LS
+    
+    LS--"Retrieves title information from"-->TS
+    LS--"Retrieves from and submits reviews to"-->RS
+    LS--"Searches for titles using"-->SS
+    
+    classDef focusSystem fill:#1168bd,stroke:#0b4884,color:#ffffff
+    classDef supportingSystem fill:#666,stroke:#0b4884,color:#ffffff
+    classDef person fill:#08427b,stroke:#052e56,color:#ffffff
+
+    class User person
+    class LS focusSystem
+    class TS,RS,SS supportingSystem
+```
+
+#### MovieBooker System Context
+
+```mermaid
+---
+title: "Listing Service C4 Model: System Context"
+---
+flowchart TD
+    Admin["🧍 
+    Administrator
+    [Person]
+
+    Administrator who
+    updates MoviePrograms"]
+
+    User["🧍‍♀️
+    MovieBooker
+    [Person]
+    
+    Movie Goer views programs 
+    and makes bookings"]
+    
+    MB["Movie Booker
+    [Software System]
+    
+    Serves web pages displaying title
+    listings to the end user"]
+    
+    MS["MovieService
+    [Software System]
+    
+    Provides an API to retrieve
+    title information"]
+    
+    BS["Booking Service
+    [Software System]
+    
+    Provides an API to retrieve
+    and submit bookings"]
+    
+    MG["Movie Goer Service
+    [Software System]
+    
+    Provides information
+    about the current user
+    for titles"]
+    
+    Admin--"Views users and updates programs" --> MB
+    User--"Views titles, searches titles\nand reviews titles using" --> MB
+    
+    MB--"Retrieves title information from"-->MS
+    MB--"Retrieves bookings from"-->BS
+    MB--"Retrieves movie goer info from"-->MG
+    
+    classDef focusSystem fill:#1168bd,stroke:#0b4884,color:#ffffff
+    classDef supportingSystem fill:#666,stroke:#0b4884,color:#ffffff
+    classDef person fill:#08427b,stroke:#052e56,color:#ffffff
+    classDef admin fill:#08427b,stroke:#052e56,color:#ffffff
+
+    class User person
+    class Admin admin
+    class MB focusSystem
+    class MS,BS,MG supportingSystem
+```
+
+#### Detail the System's Containers
+
+For the Container diagram, the second level of the C4 diagrams, we can talk about further detail
+for the containers that are in play:
+- A mobile application for mobile users
+- A web application that serves web browsers and also hosts an API for the mobile app to retrieve/send data to/from
+- A Redis instance for caching, to prevent repeated API calls to downstream services, such as the title service
+
+We also have a message broker in the form of Kafka, that we send domain events to when important things happen
+such as when a user views listings or a user watches a title.
+
+```mermaid
+---
+title: "Listing Service C4 Model: Container Diagram"
+---
+flowchart TD
+    User["🧍 
+    Premium Member
+    [Person]
+    
+    A user of the website who has
+    purchased a subscription"]
+    
+    WA["Web Application
+    [.NET Core MVC Application]
+    
+    Allows members to view and review titles
+    from a web browser. Also exposes
+    an API for the mobile app"]
+    
+    MA["Mobile Application
+    [Xamarin Application]
+    
+    Allows members to view and review
+    titles from their mobile devices"]
+    
+    R[("In-Memory Cache
+    [Redis]
+    
+    Titles and their reviews
+    are cached")]
+    
+    K["Message Broker
+    [Kafka]
+    
+    Important domain events
+    are published to Kafka"]
+    
+    TS["Title Service
+    [Software System]
+    
+    Provides an API to retrieve
+    title information"]
+    
+    RS["Reviews Service
+    [Software System]
+    
+    Provides an API to retrieve
+    and submit reviews"]
+    
+    SS["Search Service
+    [Software System]
+    
+    Provides an API to search
+    for titles"]
+    
+    User--"Views titles, searches titles
+    and reviews titles using\n[HTTPS]"-->WA
+    
+    User--"Views titles, searches titles
+    and reviews titles using
+    [HTTPS]"-->MA
+    
+    subgraph listing-service[Listing Service]
+        WA--"Reads and writes to\n[Redis Serialization Protocol]"-->R
+        MA
+    end
+    
+    WA-."Publishes messages to\n[Binary over TCP]"..->K
+    WA--"Makes API calls to\n[HTTPS]"--->TS
+    WA--"Makes API calls to\n[HTTPS]"--->RS
+    WA--"Makes API calls to\n[HTTPS]"--->SS
+    MA--"Makes API calls to\n[HTTPS]"-->WA
+
+
+    classDef container fill:#1168bd,stroke:#0b4884,color:#ffffff
+    classDef person fill:#08427b,stroke:#052e56,color:#ffffff
+    classDef supportingSystem fill:#666,stroke:#0b4884,color:#ffffff
+    class User person
+    class WA,MA,R container
+    class TS,RS,SS,K supportingSystem
+    style listing-service fill:none,stroke:#CCC,stroke-width:2px
+    style listing-service color:#fff,stroke-dasharray: 5 5
+    
+```
+This is a list of arrow types for mermaid diagrams:
+
+![image](https://user-images.githubusercontent.com/27693622/230421778-650b4cf3-06d7-498f-8991-7dbd21842aeb.png)
+
+#### Component diagrams
+Often the System Context and the Container diagram are enough in terms of higher level architectural detail.
+However, it can be useful at times to create a component diagram.
+
+```mermaid
+---
+title: "Listing Service C4 Model: Component Diagram"
+---
+
+flowchart
+    classDef container fill:#1168bd,stroke:#0b4884,color:#ffffff
+    classDef externalSystem fill:#666,stroke:#0b4884,color:#ffffff
+    classDef component fill:#855bbf0,stroke:#5d82a8,color:#000000
+    
+    Browser["Browser
+    [Web Browser]
+    
+    Used by a user to browse
+    the website"]
+    
+    MA["Application
+    [Xamarin Application]
+    
+    Allows members to view and review
+    titles from their mobile devices"]
+    
+    R["In-Memory Cache
+    [Redis]
+    
+    Titles and their reviews
+    are cached"]
+    
+    K["Message Broker
+    [Kafka]
+    
+    Important domain events are published to Kafka"]
+    
+    TS["Title Service
+    [Software System]
+    
+    Provides an API to retrieve
+    title information
+    "]
+    
+    RS["Review Service
+    [Software System]
+    
+    Provides an API to retrieve
+    and submit reviews"]
+    
+    SS["Search Service
+    [Software System]
+    
+    Provides an API to search
+    for titles"]
+    
+    TCont["Title Controller
+    [ASP.NET MVC Controller]
+    
+    Allows users to view details
+    about titles"]
+    
+    SCont["Search Controller
+    [ASP.NET MVC Controller]
+    
+    Allows users to search for titles"]
+    
+    RCont["Review Controller
+    [ASP.NET MVC Controller]
+    
+    Allows users to read and
+    write reviews"]
+    
+    TComp["title Component
+    [ASP.NET NAmespace]
+    
+    Provides information on titles,
+    retrieves information from the title service
+    and caches titles"]
+    
+    SComp["Search Component
+    [ASP.NET Namespace]
+    
+    Searches titles using the
+    search service"]
+    
+    RComp["REview Component
+    [ASP.NET Namespace]
+    
+    Provides review information,
+    submits new reviews
+    and publishes domain events"]
+    
+    Browser--"Submits requests to\n[HTTPS]"--->TCont
+    MA--"Submits requests to\n[HTTPS]"--->TCont
+    
+    MA--"Submits requests to\n[HTTPS]"--->SCont
+    Browser--"Submits requests to\n[HTTPS]"--->SCont
+    
+    MA--"Submits requests to\n[HTTPS]"--->RCont
+    Browser--"Submits requests to\n[HTTPS]"--->RCont
+    
+    
+    subgraph listing-service[Listing Service]
+        TCont--->TComp
+        RCont--->TComp
+        RCont--->RComp
+        
+        SCont--->SComp
+    end
+    
+    TComp--->TS
+    TComp--->R
+    
+    RComp--->R
+    RComp--->K
+    RComp--->RS
+    
+    SComp--->SS
+    
+    class MA,R container
+    class SS,RS,TS,K,Browser externalSystem
+    class RComp,SComp,TComp,RCont,SCont,TCont component
+    style listing-service fill:none,stroke:#CCC,stroke-width:2px
+    style listing-service color:#fff,stroke-dasharray:5 5
+```
 
