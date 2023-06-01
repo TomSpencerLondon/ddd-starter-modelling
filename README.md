@@ -230,11 +230,29 @@ This is the stage where teams can strategise all the subdomains discovered with 
 Each service must be fully owned by a team with sufficient cognitive capacity to build and operate it.
 
 #### Cognitive load
+Hacking Your Head Managing Information Overload
+Jo Pearce
+https://www.youtube.com/watch?v=DUlFxffjDFo
+
 - intrinsic (how do I write a Java class)
 - extraneous (how do I deploy this app)
 - germane (business problems)
 
-### Define
+Manage intrinsic load, reduce irrelevant load, increase relevant load = Efficient learning and increased productivity
+
+<h3 style="text-align: center;">Define</h3>
 
 ![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/969b4f9c-caba-4bdf-a1e1-676d07e702f1)
+
+#### What?
+- purpose
+- roles and traits
+
+#### Why?
+- Challenge the boundaries
+- New perspective
+- Documentation
+
+![bounded-context-canvas-v5](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/f88cd15f-182b-4e75-a398-ff8270111d8c)
+
 
