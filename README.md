@@ -149,3 +149,8 @@ The message should contain 3 elements:
 1. The name of the message
 2. The significant data contained within the message
 3. The order in which the message occurs in the flow being modelled
+
+#### Context mapping
+![context-map-cheat-sheet](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/321fe720-b55f-40ec-a9e4-80b17bc6bc58)
+
+![context-map](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/e5095fb6-abd6-4e94-a2b8-f5b8d3ec4c51)
