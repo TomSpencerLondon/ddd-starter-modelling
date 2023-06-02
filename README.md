@@ -5,9 +5,19 @@ https://www.youtube.com/watch?v=qeir72soorI
 The speaker Maxime Sanglan-Charlier refers to this repository:
 https://github.com/ddd-crew/ddd-starter-modelling-process
 
+In this repo, I am trying to gather the resources mentioned and to give an overview of the different stages of the process
+which the DDD crew, Maxime Sanglan-Charlier, Nick Tune and Michael Plod suggest can be useful in order to understand and build successful
+Domain Driven architecture.
 
+
+This diagram shows the different stages of the process. The stages move from a mile high context overview of the business 
+moving down to a deeper understanding of the domain and business rules that make up the code:
 ![ddd-starter-modelling-process-colored](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/d0c739cd-a53a-4a9f-ab6e-42d81ae18308)
 
+Here we can see that the different stages are grouped into broad areas. We have align and understand which 
+means getting the vision of the project and understanding the business value. Strategic architecture describes how to 
+group the events identified in the align and understand stage. In the strategy section, the emphasis is on how to direct team effort
+towards sucessful domain development. This section also includes some work on Team Topologies and business strategy: 
 ![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/eb256894-654a-4687-a329-c5c3aaeaff02)
 
 #### Understand
