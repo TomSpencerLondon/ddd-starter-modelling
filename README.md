@@ -20,11 +20,14 @@ group the events identified in the align and understand stage. In the strategy s
 towards sucessful domain development. This section also includes some work on Team Topologies and business strategy: 
 ![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/eb256894-654a-4687-a329-c5c3aaeaff02)
 
-#### Understand
+Next we will look at each of the stages in turn and document the tools that we can use to enable good progress during each
+stage:
 
+#### Understand
+First we look at the Understand stage. In this stage the challenge is to understand the business model and user needs.
 ![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/cd68c777-9323-405f-bb6a-3c66bc01a227)
 
-- Understanding of the domain
+In this stage we are looking for an overarching understanding of the domain
 
 ### What?
 - The business model
@@ -36,18 +39,29 @@ towards sucessful domain development. This section also includes some work on Te
 - Share short, medium & long-term vision
 - Give meaning to the team
 
+This tool looks quite interesting for understanding the key areas of the business. It does seem that it might be possible to use
+this on a project level. The Key Partners might be collaborators for the project including other teams and companies, key activties
+would describe the problem that the project solves. This business model canvas does seem quite high level for a developer.
 ![business-model-canvas](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/fd8823a8-8f57-42ca-b303-67b465586127)
 
 A more focused tool could include the product vision board as focused on one product:
 ![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/b8a21b94-b883-4b4e-ba9c-3e961ba28d5f)
+I think this tool is a bit more focussed for developers and might be a better way for developer to understand the value that is
+offered by the project.
 
 Impact mapping is another tool for product oriented vision:
 ![Impact Mapping](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/8e0f36b1-5fe5-4bce-a6b4-8e0c41486e83)
+Impact mapping is used by Gojko Adzic:
+https://www.youtube.com/watch?v=ZgHkdJ6T8oQ
+The main point here is that we are creating a map which is focussed on business goals. Here the developers are not necessarily
+involved in ticket creation so it may be less important for developers to use this tool. The main point here is to gain context
+so that ticket creators are able to clearly understand whether tickets are related to business goals.
 
 The challenge with the above tools is to work out how to avoid merely tracking activity and ensure that there tasks are focused on the
 usefulness of what teams are trying to deliver.
 
 ### Discover
+The discover stage can include event storming and focusses on representing the domain visually and collaboratively.
 ![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/eeaf937c-9c76-440c-a7fd-50a8b37a7d87)
 
 ### What?
@@ -68,12 +82,19 @@ Alberto Brandolini
 ![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/2098bbd6-20bf-440b-86e2-54d98b61cba1)
 
 ### User Story Mapping
+User story mapping is another tool for relating tickets to high level tasks users can do in the product that
+the project is implementing:
 ![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/0374571f-dfbc-4266-a925-bd5475a86a32)
 
 ### Domain Storytelling
+Domain storytelling is a tool for understanding the interactions that users have with the business.
+This site is quite easy to use and can be a useful tool for understanding business processes in the application
+teams are building:
 https://egon.io/app/
+
 https://github.com/WPS/egon.io-examples/tree/main
 
+Here are a few domain storytelling examples for reference:
 ### Taxi example
 ![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/322236ed-ae13-4d11-ac35-6f77059fea0e)
 
@@ -84,6 +105,7 @@ https://github.com/WPS/egon.io-examples/tree/main
 ![request account for web app_2023-06-01](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/d751b01d-b8c6-4ff1-a03f-0264b93c5dbb)
 
 ### Decompose
+The decompose stage is focussed on splitting the domain into sub-domains.
 ![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/bc64def7-dae5-44f1-bcd8-f24c014120a0)
 
 #### What?
@@ -95,10 +117,12 @@ https://github.com/WPS/egon.io-examples/tree/main
 - High cohesion and low coupling
 - Trace the architecture boundaries
 
+The below diagram is quite useful to visualise how a domain might be split into separate subdomains:
 https://microservices.io/patterns/decomposition/decompose-by-subdomain.html
 ![decompose-by-subdomain](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/1f66eebf-73f8-4e6e-83ef-97b0a3ff492d)
 
 ### Connect
+In the connect stage we are trying to use the subdomains we have identified to build a loosely coupled architecture:
 ![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/ee6ee22d-6838-4e8b-96bb-bcbc1abd0d0c)
 
 #### What?
@@ -189,13 +213,13 @@ Context Maps aim to deliver a holistic overview regarding coupling of bounded co
 
 With context mapping we focus on dependencies between bounded contexts:
 ![context-map-cheat-sheet](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/321fe720-b55f-40ec-a9e4-80b17bc6bc58)
-
+The focus is on how teams interact:
 ![context-map](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/e5095fb6-abd6-4e94-a2b8-f5b8d3ec4c51)
 
 ![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/bee5f016-8908-484f-9cca-0de197b5a225)
 
 ### Strategise
-This is the stage where teams can strategise all the subdomains discovered with the above tools.
+This is the stage where teams can strategise using all the subdomains discovered with the above tools.
 
 ![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/f015a5bd-9d0c-4312-ac66-0ac5aa98ff0c)
 
@@ -208,8 +232,9 @@ This is the stage where teams can strategise all the subdomains discovered with 
 - Build vs Buy
 - Help to think short, medium and long-term
 
+Teams would then place the different parts of the application in the correct places on the below graph:
 ![core-domain-chart](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/ae71f07f-c365-475a-9a40-fb3ad4e25628)
-
+This would help them identify which tool is core for the business and which tools are supporting or generic.
 - core - usp - unique selling proposition - make application different
     - cinema management - movies + cinemas
 - supporting
@@ -250,8 +275,9 @@ https://www.youtube.com/watch?v=DUlFxffjDFo
 
 Manage intrinsic load, reduce irrelevant load, increase relevant load = Efficient learning and increased productivity
 
-<h3 style="text-align: center;">Define</h3>
-
+### Define
+In the define stage teams would identify bounded contexts and aim to document the inbound and outbound communications
+to and from the API.
 ![image](https://github.com/TomSpencerLondon/LeetCode/assets/27693622/969b4f9c-caba-4bdf-a1e1-676d07e702f1)
 
 #### What?
@@ -269,6 +295,7 @@ Manage intrinsic load, reduce irrelevant load, increase relevant load = Efficien
 
 
 #### Using the C4 Model
+The C4 model can also be a useful tool during the define stage.
 The C4 diagram has four parts:
 - System Context
 - Container
